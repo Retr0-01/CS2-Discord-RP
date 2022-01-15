@@ -25,4 +25,4 @@ Huge thanks to the following devs/teams for creating some of the packages/tools 
 - [quicktype](https://quicktype.io/csharp) for instantly generating the needed C# models in order to use the JSON data
 
 ## Licensing  
-This repository is licensed under the MIT Licence. [Learn more.](https://github.com/Retr0-01/CSGO-Discord-RP/blob/main/LICENCE.md)
+This repository is licensed under the MIT License. [Learn more.](https://github.com/Retr0-01/CSGO-Discord-RP/blob/main/LICENSE.md)
