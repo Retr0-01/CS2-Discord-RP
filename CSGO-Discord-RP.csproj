@@ -8,14 +8,19 @@
     <Nullable>annotations</Nullable>
     <IsPublishable>False</IsPublishable>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
-    <DebugType>portable</DebugType>
+    <DebugType>none</DebugType>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="favicon.ico" />
+    <None Remove=".gitattributes" />
+    <None Remove=".gitignore" />
+    <None Remove="favicon.ico" />
+    <None Remove="gamestate_integration_discord-rp.cfg" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="DiscordRichPresence" Version="1.0.175" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
