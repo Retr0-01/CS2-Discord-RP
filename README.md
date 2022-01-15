@@ -13,6 +13,7 @@ A Rich Presence application for showing custom status of your active Counter-Str
 This application uses the [Counter-Strike: Global Offensive Game State Integration](https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Game_State_Integration) to fetch the data of your active game. It creates a local server (port 3000) which listens for the data and then applies it to your Discord client.
 
 ## Install
+First install [.NET 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)  
 Go to the [latest release](https://github.com/Retr0-01/CSGO-Discord-RP/releases/latest), download the ``CSGO-Discord-RP.zip`` file from the Assets section and then extract it to the location of your choosing. Now you should have the folder containing the application and a file called ``gamestate_integration_discord-rp.cfg``.  
 Cut the cfg file and paste it inside the "cfg" folder of your CS:GO installation.  
 For example ``C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo\cfg`` is where I will have to put it.  
