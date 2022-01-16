@@ -1,7 +1,7 @@
-﻿using System.Net;
-using System.Text;
-using DiscordRPC;
+﻿using DiscordRPC;
 using GameState;
+using System.Net;
+using System.Text;
 
 namespace CSGODiscordRP;
 
