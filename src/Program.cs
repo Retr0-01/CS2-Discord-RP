@@ -10,6 +10,7 @@ public class Program
 		Console.WriteLine( "Source Code: https://github.com/Retr0-01/CSGO-Discord-RP" );
 		Console.WriteLine();
 
+		ApplicationSetup.Configure();
 		DiscordManager.Initialize();
 		HttpServer.Start();
 	}

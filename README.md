@@ -6,6 +6,7 @@ A Rich Presence application for showing custom status of your active Counter-Str
 - [CS:GO Discord Rich Presence](#csgo-discord-rich-presence)
 	- [How It Works](#how-it-works)
 	- [Install](#install)
+	- [Troubleshooting](#troubleshooting)
 	- [Credits](#credits)
 	- [Licensing](#licensing)
 
@@ -14,10 +15,12 @@ This application uses the [Counter-Strike: Global Offensive Game State Integrati
 
 ## Install
 Go to the [latest release](https://github.com/Retr0-01/CSGO-Discord-RP/releases/latest), download the ``CSGO-Discord-RP.zip`` file from the Assets section and then extract it to the location of your choosing. Now you should have the exe and a file called ``gamestate_integration_discord-rp.cfg``.  
-Cut the cfg file and paste it inside the "cfg" folder of your CS:GO installation.  
-For example ``C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo\cfg`` is where I will have to put it.  
-Once you have done that just run the exe file and you should be good to go!
+All you have to do now is run the exe and you should be good to go!
 
+## Troubleshooting
+**[SETUP] CS:GO installation path not found! Aborting...** 
+> If for whatever reason the application couldn't find your game installation path or write the config file needed, you need to manually copy the ``gamestate_integration_discord-rp.cfg`` file and paste it *inside* the ``cfg`` folder of your CS:GO installation.  
+> Example path: `C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo\cfg`
 ## Credits
 Huge thanks to the following devs/teams for creating some of the packages/tools used.  
 - [Newtonsoft](https://www.newtonsoft.com/json) for Json.NET
