@@ -1,7 +1,7 @@
 ﻿using Microsoft.Win32;
 using System.Text.RegularExpressions;
 
-namespace CSGODiscordRP;
+namespace RichPresenceApp;
 
 public static class ApplicationSetup
 {

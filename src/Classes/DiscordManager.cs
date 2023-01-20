@@ -1,7 +1,7 @@
 ﻿using DiscordRPC;
 using DiscordRPC.Logging;
 
-namespace CSGODiscordRP;
+namespace RichPresenceApp;
 
 public static class DiscordManager
 {

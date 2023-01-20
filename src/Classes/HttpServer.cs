@@ -3,7 +3,7 @@ using GameState;
 using System.Net;
 using System.Text;
 
-namespace CSGODiscordRP;
+namespace RichPresenceApp;
 
 public class HttpServer
 {

@@ -1,4 +1,4 @@
-﻿namespace CSGODiscordRP;
+﻿namespace RichPresenceApp;
 
 public class Program
 {

@@ -21,6 +21,7 @@ All you have to do now is run the exe and you should be good to go!
 **[SETUP] CS:GO installation path not found! Aborting...** 
 > If for whatever reason the application couldn't find your game installation path or write the config file needed, you need to manually copy the ``gamestate_integration_discord-rp.cfg`` file and paste it *inside* the ``cfg`` folder of your CS:GO installation.  
 > Example path: `C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo\cfg`
+> 
 ## Credits
 Huge thanks to the following devs/teams for creating some of the packages/tools used.  
 - [Newtonsoft](https://www.newtonsoft.com/json) for Json.NET
