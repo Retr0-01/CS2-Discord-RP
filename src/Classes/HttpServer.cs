@@ -7,8 +7,8 @@ namespace RichPresenceApp;
 
 public class HttpServer
 {
-	public static HttpListener Listener = new();
-	public static readonly string Url = "http://localhost:3000/";
+	public static readonly HttpListener Listener = new();
+	private const string Url = "http://localhost:3000/";
 
 	public static void Start()
 	{
@@ -23,7 +23,7 @@ public class HttpServer
 		Listener.Close();
 	}
 
-	public static async Task HandleRequests()
+	private static async Task HandleRequests()
 	{
 		bool IsRunning = true;
 

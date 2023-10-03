@@ -3,7 +3,7 @@ using DiscordRPC.Logging;
 
 namespace RichPresenceApp;
 
-public static class DiscordManager
+public class DiscordManager
 {
 	public static DiscordRpcClient Client;
 

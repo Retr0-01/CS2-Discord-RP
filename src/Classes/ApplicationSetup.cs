@@ -3,20 +3,20 @@ using System.Text.RegularExpressions;
 
 namespace RichPresenceApp;
 
-public static class ApplicationSetup
+public class ApplicationSetup
 {
-	public static readonly string configFileName = "gamestate_integration_discord-rp.cfg";
+	private const string configFileName = "gamestate_integration_discord-rp.cfg";
 
 	public static void Configure()
 	{
-		string gamePath = GetCSGODir();
+		string gamePath = GetGameDir();
 		if ( gamePath == null )
-			Console.WriteLine( "[SETUP] CS:GO installation path not found! Aborting..." );
+			Console.WriteLine( "[SETUP] CS2 installation path not found! Aborting..." );
 		else
 		{
-			Console.WriteLine( $"[SETUP] Found CS:GO installation path...\n|--- {gamePath}" );
+			Console.WriteLine( $"[SETUP] Found CS2 installation path...\n|--- {gamePath}" );
 
-			string configFile = Path.Combine( gamePath, "cfg", configFileName );
+			string configFile = Path.Combine( gamePath, "game", "csgo", "cfg", configFileName );
 			// Delete the file if it already exists and make a clean one.
 			if ( File.Exists( configFile ) )
 			{
@@ -24,10 +24,10 @@ public static class ApplicationSetup
 				Console.WriteLine( "[SETUP] Deleted existing config file." );
 			}
 
-			Console.WriteLine( $"[SETUP] Writing \"{configFileName}\" config file..." );
+			Console.WriteLine( $"[SETUP] Writing \"{configFileName}\" config file...\n|--- {configFile}" );
 			using ( StreamWriter sw = File.CreateText( configFile ) )
 			{
-				sw.WriteLine( "\"CSGO-Discord-RP\"" );
+				sw.WriteLine( "\"CS2-Discord-RP\"" );
 				sw.WriteLine( "{" );
 				sw.WriteLine( "	\"uri\"				\"http://localhost:3000\"" );
 				sw.WriteLine( "	\"timeout\"			\"5.0\"" );
@@ -53,7 +53,7 @@ public static class ApplicationSetup
 	/// Returns the location of the CS:GO installation, or null if it's unable to find it. 
 	/// </summary>
 	/// <returns></returns>
-	private static string GetCSGODir()
+	private static string GetGameDir()
 	{
 		// Credit to moritzuehling for this code snippet
 		// https://gist.github.com/moritzuehling/7f1c512871e193c0222f
@@ -85,10 +85,10 @@ public static class ApplicationSetup
 
 		foreach ( var library in libraries )
 		{
-			string csgoPath = Path.Combine( library, "steamapps\\common\\Counter-Strike Global Offensive\\csgo" );
-			if ( Directory.Exists( csgoPath ) )
+			string csGamePath = Path.Combine( library, "steamapps\\common\\Counter-Strike Global Offensive" );
+			if ( Directory.Exists( csGamePath ) )
 			{
-				return csgoPath;
+				return csGamePath;
 			}
 		}
 

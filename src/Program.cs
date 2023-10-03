@@ -4,10 +4,10 @@ public class Program
 {
 	public static void Main( string[] args )
 	{
-		Console.Title = "CS:GO Discord Rich Presence";
-		Console.WriteLine( "=============== CS:GO DISCORD RICH PRESENCE ===============" );
-		Console.WriteLine( "Create by Retr0#1799 :)" );
-		Console.WriteLine( "Source Code: https://github.com/Retr0-01/CSGO-Discord-RP" );
+		Console.Title = "CS2 Discord Rich Presence";
+		Console.WriteLine( "=============== CS2 DISCORD RICH PRESENCE ===============" );
+		Console.WriteLine( "Create by Giannis \"Retr0\" Kepas with :>" );
+		Console.WriteLine( "Source: https://github.com/Retr0-01/CS2-Discord-RP" );
 		Console.WriteLine();
 
 		ApplicationSetup.Configure();

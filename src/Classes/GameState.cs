@@ -1,8 +1,12 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System.Globalization;
+﻿//
+// Originally auto-generated from https://app.quicktype.io/
+//
 
 namespace GameState;
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.Globalization;
 
 public partial class TopLevel
 {
@@ -178,7 +182,7 @@ public static class Serialize
 
 internal static class Converter
 {
-	public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
+	public static readonly JsonSerializerSettings Settings = new()
 	{
 		MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
 		DateParseHandling = DateParseHandling.None,
