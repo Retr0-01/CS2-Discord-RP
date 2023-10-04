@@ -1,39 +1,40 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0-windows10.0.22621.0</TargetFramework>
-    <RootNamespace>RichPresenceApp</RootNamespace>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>annotations</Nullable>
-    <IsPublishable>False</IsPublishable>
-    <ApplicationIcon>favicon.ico</ApplicationIcon>
-    <DebugType>none</DebugType>
-    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
-    <StartupObject>RichPresenceApp.Program</StartupObject>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<UseWindowsForms>True</UseWindowsForms>
+		<RootNamespace>RichPresenceApp</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>annotations</Nullable>
+		<IsPublishable>False</IsPublishable>
+		<ApplicationIcon>favicon.ico</ApplicationIcon>
+		<DebugType>none</DebugType>
+		<ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+		<StartupObject>RichPresenceApp.Program</StartupObject>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'" />
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'" />
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'" />
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'" />
 
-  <ItemGroup>
-    <None Remove=".gitattributes" />
-    <None Remove=".gitignore" />
-    <None Remove="CODE_OF_CONDUCT.md" />
-    <None Remove="favicon.ico" />
-    <None Remove="gamestate_integration_discord-rp.cfg" />
-    <None Remove="LICENSE.md" />
-    <None Remove="README.md" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove=".gitattributes" />
+		<None Remove=".gitignore" />
+		<None Remove="CODE_OF_CONDUCT.md" />
+		<None Remove="favicon.ico" />
+		<None Remove="gamestate_integration_discord-rp.cfg" />
+		<None Remove="LICENSE.md" />
+		<None Remove="README.md" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Content Include="favicon.ico" />
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="favicon.ico" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="DiscordRichPresence" Version="1.2.1.24" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="DiscordRichPresence" Version="1.2.1.24" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
 
 </Project>

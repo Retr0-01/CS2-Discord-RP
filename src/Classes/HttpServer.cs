@@ -14,7 +14,7 @@ public class HttpServer
 	{
 		Listener.Prefixes.Add( Url );
 		Listener.Start();
-		Console.WriteLine( $"[SERVER] - Listening for data on {Url}" );
+		Console.WriteLine( $"[SERVER] Listening for data on {Url}" );
 
 		// Handle requests.
 		Task ListenTask = HandleRequests();
@@ -50,7 +50,7 @@ public class HttpServer
 
 			if ( Request.HttpMethod == "POST" )
 			{
-				Console.WriteLine( "[SERVER] - Incoming data..." );
+				Console.WriteLine( "[SERVER] Incoming data..." );
 				using ( var Reader = new StreamReader( Request.InputStream, Request.ContentEncoding ) )
 				{
 					RawData = Reader.ReadToEnd();
