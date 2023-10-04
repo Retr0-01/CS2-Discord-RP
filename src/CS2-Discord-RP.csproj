@@ -7,7 +7,7 @@
 		<RootNamespace>RichPresenceApp</RootNamespace>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>annotations</Nullable>
-		<IsPublishable>False</IsPublishable>
+		<IsPublishable>True</IsPublishable>
 		<ApplicationIcon>favicon.ico</ApplicationIcon>
 		<DebugType>none</DebugType>
 		<ProduceReferenceAssembly>False</ProduceReferenceAssembly>
