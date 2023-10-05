@@ -68,6 +68,13 @@ public class HttpServer
 			// Write out the data. We need to do this regardless if it's used or not.
 			await Response.OutputStream.WriteAsync( Data );
 
+			// In case we failed to parse our data for whatever reason, close early.
+			if ( topLevel == null )
+			{
+				Response.Close();
+				return;
+			}
+
 			// Let's start building our rich presence.
 			// First check if we are really playing.
 			if ( topLevel.Player.Activity == "playing" )
