@@ -3,7 +3,7 @@ using DiscordRPC.Logging;
 
 namespace RichPresenceApp;
 
-public static class DiscordManager
+public class DiscordManager
 {
 	public static DiscordRpcClient Client;
 
@@ -19,12 +19,12 @@ public static class DiscordManager
 		// Subscribe to events.
 		Client.OnReady += ( sender, args ) =>
 		{
-			Console.WriteLine( "[DISCORD] - Received 'ready' from user {0}", args.User.Username );
+			Console.WriteLine( "[DISCORD] Received 'ready' from user {0}", args.User.Username );
 		};
 
 		Client.OnPresenceUpdate += ( sender, args ) =>
 		{
-			Console.WriteLine( "[DISCORD] - Presence updated!" );
+			Console.WriteLine( "[DISCORD] Presence updated!" );
 		};
 
 		// Connect to the RPC.

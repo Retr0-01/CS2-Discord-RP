@@ -7,14 +7,14 @@ namespace RichPresenceApp;
 
 public class HttpServer
 {
-	public static HttpListener Listener = new();
-	public static readonly string Url = "http://localhost:3000/";
+	public static readonly HttpListener Listener = new();
+	private const string Url = "http://localhost:3000/";
 
 	public static void Start()
 	{
 		Listener.Prefixes.Add( Url );
 		Listener.Start();
-		Console.WriteLine( $"[SERVER] - Listening for data on {Url}" );
+		Console.WriteLine( $"[SERVER] Listening for data on {Url}" );
 
 		// Handle requests.
 		Task ListenTask = HandleRequests();
@@ -23,7 +23,7 @@ public class HttpServer
 		Listener.Close();
 	}
 
-	public static async Task HandleRequests()
+	private static async Task HandleRequests()
 	{
 		bool IsRunning = true;
 
@@ -50,7 +50,7 @@ public class HttpServer
 
 			if ( Request.HttpMethod == "POST" )
 			{
-				Console.WriteLine( "[SERVER] - Incoming data..." );
+				Console.WriteLine( "[SERVER] Incoming data..." );
 				using ( var Reader = new StreamReader( Request.InputStream, Request.ContentEncoding ) )
 				{
 					RawData = Reader.ReadToEnd();
@@ -67,6 +67,13 @@ public class HttpServer
 
 			// Write out the data. We need to do this regardless if it's used or not.
 			await Response.OutputStream.WriteAsync( Data );
+
+			// In case we failed to parse our data for whatever reason, close early.
+			if ( topLevel == null )
+			{
+				Response.Close();
+				return;
+			}
 
 			// Let's start building our rich presence.
 			// First check if we are really playing.

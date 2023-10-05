@@ -1,22 +1,42 @@
 ﻿namespace RichPresenceApp;
 
-public class Program
+public static class Program
 {
-	public static void Main( string[] args )
+	[STAThread]
+	static void Main()
 	{
-		Console.Title = "CS:GO Discord Rich Presence";
-		Console.WriteLine( "=============== CS:GO DISCORD RICH PRESENCE ===============" );
-		Console.WriteLine( "Create by Retr0#1799 :)" );
-		Console.WriteLine( "Source Code: https://github.com/Retr0-01/CSGO-Discord-RP" );
+		Application.SetCompatibleTextRenderingDefault( false );
+		Application.Run( new RichPresenceAppContext() );
+	}
+}
+
+public class RichPresenceAppContext : ApplicationContext
+{
+	public RichPresenceAppContext()
+	{
+		ConsoleManager.AllocConsole();
+		ConsoleManager.SetConsoleWindowVisibility( false );
+
+		Console.Title = "Counter-Strike 2 Discord Rich Presence";
+		Console.WriteLine( "=============== CS2 DISCORD RICH PRESENCE ===============" );
+		Console.WriteLine( "Create by Giannis \"Retr0\" Kepas with love :>" );
+		Console.WriteLine( "Source: https://github.com/Retr0-01/CS2-Discord-RP" );
 		Console.WriteLine();
 
+		SystemTray.Setup();
 		ApplicationSetup.Configure();
 		DiscordManager.Initialize();
+		// Main application loop. Code after this point will be run only on shutdown.
 		HttpServer.Start();
+
+		Exit();
 	}
 
-	static void CurrentDomain_ProcessExit( object sender, EventArgs e )
+	private static void Exit()
 	{
+		SystemTray.NotifyIcon.Visible = false;
+		ConsoleManager.FreeConsole();
 		DiscordManager.Client.Dispose();
+		Application.Exit();
 	}
 }
