@@ -43,7 +43,15 @@ public class SystemTray
 		ToolStripItem item = (ToolStripItem)sender;
 
 		if ( item.Text == "Open Console" )
-			Program.SetConsoleWindowVisibility( true );
+		{
+			ConsoleManager.SetConsoleWindowVisibility( true );
+			item.Text = "Close Console";
+		}
+		else if ( item.Text == "Close Console" )
+		{
+			ConsoleManager.SetConsoleWindowVisibility( false );
+			item.Text = "Open Console";
+		}
 		else if ( item.Text == "Quit App" )
 			Environment.Exit( Environment.ExitCode );
 	}
