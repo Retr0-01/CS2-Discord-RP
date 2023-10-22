@@ -38,7 +38,6 @@ public class ApplicationSetup
 				sw.WriteLine( "	{" );
 				sw.WriteLine( "		\"provider\"				\"1\"" );
 				sw.WriteLine( "		\"map\"						\"1\"" );
-				sw.WriteLine( "		\"round\"					\"1\"" );
 				sw.WriteLine( "		\"player_id\"				\"1\"" );
 				sw.WriteLine( "		\"player_match_stats\"		\"1\"" );
 				sw.WriteLine( "		\"player_state\"			\"1\"" );

@@ -16,9 +16,6 @@ public partial class TopLevel
 	[JsonProperty( "map" )]
 	public Map Map { get; set; }
 
-	[JsonProperty( "round" )]
-	public Round Round { get; set; }
-
 	[JsonProperty( "player" )]
 	public Player Player { get; set; }
 }
@@ -162,12 +159,6 @@ public partial class Provider
 
 	[JsonProperty( "timestamp" )]
 	public long Timestamp { get; set; }
-}
-
-public partial class Round
-{
-	[JsonProperty( "phase" )]
-	public string Phase { get; set; }
 }
 
 public partial class TopLevel

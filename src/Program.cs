@@ -27,7 +27,7 @@ public class RichPresenceAppContext : ApplicationContext
 		ApplicationSetup.Configure();
 		DiscordManager.Initialize();
 		// Main application loop. Code after this point will be run only on shutdown.
-		HttpServer.Start();
+		HttpServer.StartServer();
 
 		Exit();
 	}
