@@ -11,7 +11,7 @@ A Rich Presence application for showing custom status of your active Counter-Str
 	- [How It Works](#how-it-works)
 	- [Showcase](#showcase)
 	- [Install](#install)
-	- [Troubleshooting](#troubleshooting)
+	- [FAQ](#faq)
 	- [Credits](#credits)
 	- [Licensing](#licensing)
 
@@ -27,11 +27,15 @@ This application uses the [Counter-Strike Game State Integration](https://develo
 Go to the [latest release](https://github.com/Retr0-01/CSGO-Discord-RP/releases/latest), download the ``CS2-Discord-RP.zip`` file from the Assets section and then extract it to the location of your choosing. Now you should have the exe and a file called ``gamestate_integration_discord-rp.cfg``.  
 All you have to do now is run the exe and you should be good to go!
 
-## Troubleshooting
+## FAQ
+**Why is the .exe so big?**
+> Because all the needed libraries and dependencies are packaged into it. Instead of having one .exe with another tenths of files and .dlls, we just have this big .exe.  
+> In less nerd words, because the app is actually this big.
+
 **[SETUP] CS2 installation path not found! Aborting...** 
 > If for whatever reason the application couldn't find your game installation path or write the config file needed, you need to manually copy the ``gamestate_integration_discord-rp.cfg`` file and paste it *inside* the ``cfg`` folder of your CS2 installation.  
 > Example path: `C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg`
-> 
+
 ## Credits
 Huge thanks to the following devs/teams for creating some of the packages/tools used.  
 - [Newtonsoft](https://www.newtonsoft.com/json) for Json.NET
