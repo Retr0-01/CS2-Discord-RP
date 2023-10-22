@@ -5,7 +5,7 @@ namespace RichPresenceApp;
 
 public class ApplicationSetup
 {
-	public static readonly int AppPort = 2210;
+	public static readonly int AppPort = 2209;
 	private const string configFileName = "gamestate_integration_discord-rp.cfg";
 
 	public static void Configure()

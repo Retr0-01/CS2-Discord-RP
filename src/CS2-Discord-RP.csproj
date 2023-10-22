@@ -8,7 +8,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>annotations</Nullable>
 		<IsPublishable>True</IsPublishable>
-		<ApplicationIcon>favicon.ico</ApplicationIcon>
+		<ApplicationIcon>Assets\favicon.ico</ApplicationIcon>
 		<DebugType>none</DebugType>
 		<ProduceReferenceAssembly>False</ProduceReferenceAssembly>
 		<StartupObject>RichPresenceApp.Program</StartupObject>
@@ -30,7 +30,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Content Include="favicon.ico" />
+		<Content Include="Assets\favicon.ico" />
 	</ItemGroup>
 
 	<ItemGroup>
