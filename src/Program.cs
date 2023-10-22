@@ -14,7 +14,7 @@ public class RichPresenceAppContext : ApplicationContext
 {
 	public RichPresenceAppContext()
 	{
-		ConsoleManager.AllocConsole();
+		ConsoleManager.CreateConsole();
 		ConsoleManager.SetConsoleWindowVisibility( false );
 
 		Console.Title = "Counter-Strike 2 Discord Rich Presence";
