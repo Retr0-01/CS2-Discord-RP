@@ -29,14 +29,6 @@ public class RichPresenceAppContext : ApplicationContext
 		// Main application loop. Code after this point will be run only on shutdown.
 		HttpServer.StartServer();
 
-		Exit();
-	}
-
-	private static void Exit()
-	{
-		SystemTray.NotifyIcon.Visible = false;
-		ConsoleManager.FreeConsole();
-		DiscordManager.Client.Dispose();
-		Application.Exit();
+		Utils.ExitApplication();
 	}
 }

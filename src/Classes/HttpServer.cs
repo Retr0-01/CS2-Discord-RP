@@ -5,56 +5,70 @@ namespace RichPresenceApp;
 
 public class HttpServer
 {
-    private static readonly HttpListener Listener = new();
-    private const string Url = "http://localhost:3000/";
+	private static readonly HttpListener Listener = new();
 
-    public static void StartServer()
-    {
-        Listener.Prefixes.Add( Url );
-        Listener.Start();
-        Console.WriteLine( $"[SERVER] Listening for data on {Url}" );
+	public static void StartServer()
+	{
+		string url = $"http://localhost:{ApplicationSetup.AppPort}/";
 
-        // Handle requests.
-        Task ListenTask = HandleRequests();
-        ListenTask.GetAwaiter().GetResult();
+		try
+		{
+			Listener.Prefixes.Add( url );
+			Listener.Start();
+			Console.WriteLine( $"[SERVER] Listening for data on {url}" );
 
-        Listener.Close();
-    }
+			// Handle requests.
+			Task ListenTask = HandleRequests();
+			ListenTask.GetAwaiter().GetResult();
 
-    private static async Task HandleRequests()
-    {
-        while ( true )
-        {
-            try
-            {
-                HttpListenerContext Context = await Listener.GetContextAsync();
-                HttpListenerRequest Request = Context.Request;
-                HttpListenerResponse Response = Context.Response;
+			Listener.Close();
+		}
+		catch ( Exception ex )
+		{
+			ConsoleManager.SetConsoleWindowVisibility( true );
+			Console.WriteLine( "[SERVER] Error starting listen server!" );
+			Console.Write( ex.ToString() );
+			Console.WriteLine( "\n\nA common issue for this error is that the port is already being listened by an application." );
+			Console.WriteLine( "Make sure that the rich presence app is not open more than once and try again.\n\nPress any key to close this..." );
+			Console.ReadLine();
+			Utils.ExitApplication();
+		}
+	}
 
-                if ( Request.HttpMethod == "POST" )
-                {
-                    Console.WriteLine( "[SERVER] Incoming data..." );
+	private static async Task HandleRequests()
+	{
+		while ( true )
+		{
+			try
+			{
+				HttpListenerContext Context = await Listener.GetContextAsync();
+				HttpListenerRequest Request = Context.Request;
+				HttpListenerResponse Response = Context.Response;
 
-                    // Read the data that were sent by the game.
-                    using var Reader = new StreamReader( Request.InputStream, Request.ContentEncoding );
-                    string rawData = Reader.ReadToEnd();
-                    TopLevel gameData = TopLevel.FromJson( rawData );
+				if ( Request.HttpMethod == "POST" )
+				{
+					Console.WriteLine( "[SERVER] Incoming data..." );
 
-                    // Set our new presence...
-                    DiscordManager.Client.SetPresence( DiscordManager.BuildPresenceFromData( gameData ) );
-                    // and apply the presence changes.
-                    DiscordManager.Client.Invoke();
-                }
+					// Read the data that were sent by the game.
+					using var Reader = new StreamReader( Request.InputStream, Request.ContentEncoding );
+					string rawData = Reader.ReadToEnd();
+					TopLevel gameData = TopLevel.FromJson( rawData );
 
-                // We must return a response once we are done.
-                Response.StatusCode = (int)HttpStatusCode.NoContent;
-                Response.Close();
-            }
-            catch ( Exception ex )
-            {
-                Console.WriteLine( "[SERVER] Error handling request: " + ex.Message );
-                Console.Write( ex.ToString() );
-            }
-        }
-    }
+					// Set our new presence...
+					DiscordManager.Client.SetPresence( DiscordManager.BuildPresenceFromData( gameData ) );
+					// and apply the presence changes.
+					DiscordManager.Client.Invoke();
+				}
+
+				// We must return a response once we are done.
+				Response.StatusCode = (int)HttpStatusCode.NoContent;
+				Response.Close();
+			}
+			catch ( Exception ex )
+			{
+				Console.WriteLine( "[SERVER] Error handling request!" );
+				Console.Write( ex.ToString() );
+			}
+		}
+	}
 }

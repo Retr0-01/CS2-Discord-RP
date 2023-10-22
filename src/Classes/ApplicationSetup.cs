@@ -5,6 +5,7 @@ namespace RichPresenceApp;
 
 public class ApplicationSetup
 {
+	public static readonly int AppPort = 2210;
 	private const string configFileName = "gamestate_integration_discord-rp.cfg";
 
 	public static void Configure()
@@ -29,7 +30,7 @@ public class ApplicationSetup
 			{
 				sw.WriteLine( "\"CS2-Discord-RP\"" );
 				sw.WriteLine( "{" );
-				sw.WriteLine( "	\"uri\"				\"http://localhost:3000\"" );
+				sw.WriteLine( $"	\"uri\"				\"http://localhost:{AppPort}\"" );
 				sw.WriteLine( "	\"timeout\"			\"5.0\"" );
 				sw.WriteLine( "	\"buffer\"			\"1\"" );
 				sw.WriteLine( "	\"throttle\"		\"5\"" );
